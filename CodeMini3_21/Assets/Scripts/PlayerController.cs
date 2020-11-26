@@ -6,21 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    bool isOnGround;
+    float jumpForce = 10.0f;
+    float gravityModifier = 2.0f;
     float speed = 5.0f;
   //public float timer;
 
     public GameObject PowerUpCollected;
     public Animator playerAnim;
     public Animator planeB;
+    public Rigidbody playerRb;
+    public Renderer playerRdr;
   //public GameObject Timer;
 
     private int powerUp;
     private int totalPowerUp;
 
+    public Material[] playerMtrs;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerRb = GetComponent<Rigidbody>();
+        playerRdr = GetComponent<Renderer>();
+        isOnGround = true;
+        Physics.gravity *= gravityModifier;
+
         totalPowerUp = GameObject.FindGameObjectsWithTag("PowerUp").Length;
     //  Timer.GetComponent<Text>().text = "Timer: " + timer.ToString("10");
     }
@@ -68,6 +79,7 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
+        PlayerJump();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -91,6 +103,20 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("PlaneA"))
+        {
+            isOnGround = true;
+            playerRdr.material.color = playerMtrs[1].color;
+        }
+    }
+    private void PlayerJump()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        {
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isOnGround = false;
+            playerRdr.material.color = playerMtrs[0].color;
+
+        }
     }
 }

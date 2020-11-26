@@ -699,6 +699,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634480619}
   m_CullTransparentMesh: 0
+--- !u!137 &669483114 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700002, guid: 2dc7b382d25903545b405802eb2198ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 42959161}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,7 +1219,7 @@ GameObject:
   - component: {fileID: 1084895201}
   m_Layer: 0
   m_Name: PlaneA
-  m_TagString: Untagged
+  m_TagString: PlaneA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1997,7 +2003,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909602293}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -16.72, y: 0, z: 0.5}
+  m_LocalPosition: {x: 10.53, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1140604661}
@@ -2019,6 +2025,11 @@ MonoBehaviour:
   PowerUpCollected: {fileID: 634480619}
   playerAnim: {fileID: 1140604662}
   planeB: {fileID: 1776635068}
+  playerRb: {fileID: 1909602294}
+  playerRdr: {fileID: 669483114}
+  playerMtrs:
+  - {fileID: 2100000, guid: a941d61b1b4481d40b3cc0b058a856be, type: 2}
+  - {fileID: 2100000, guid: efb1469008cdd2c4abcc15a1e7081d2a, type: 2}
 --- !u!4 &1977462952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 10f4e51254da985418a112d2dfe124f0,
