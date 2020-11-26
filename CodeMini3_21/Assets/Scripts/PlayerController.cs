@@ -8,29 +8,27 @@ public class PlayerController : MonoBehaviour
 {
     bool isOnGround;
     float jumpForce = 10.0f;
-    float gravityModifier = 2.0f;
     float speed = 5.0f;
-  //public float timer;
+    //public float timer;
 
     public GameObject PowerUpCollected;
     public Animator playerAnim;
     public Animator planeB;
-    public Rigidbody playerRb;
-    public Renderer playerRdr;
-  //public GameObject Timer;
+    public GameObject[] playerModelGO;
+
+    //public GameObject Timer;
 
     private int powerUp;
     private int totalPowerUp;
 
-    public Material[] playerMtrs;
+    //public Material[] playerMtrs;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody>();
-        playerRdr = GetComponent<Renderer>();
+        playerModelGO[0].GetComponent<Renderer>().material.color = Color.red;
+        playerModelGO[1].GetComponent<Renderer>().material.color = Color.red;
         isOnGround = true;
-        Physics.gravity *= gravityModifier;
 
         totalPowerUp = GameObject.FindGameObjectsWithTag("PowerUp").Length;
     //  Timer.GetComponent<Text>().text = "Timer: " + timer.ToString("10");
@@ -79,7 +77,15 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
-        PlayerJump();
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        {
+            playerAnim.SetTrigger("Trigjump");
+            transform.Translate(Vector3.up * Time.deltaTime * jumpForce);
+            isOnGround = false;
+            playerModelGO[0].GetComponent<Renderer>().material.color = Color.blue;
+            playerModelGO[1].GetComponent<Renderer>().material.color = Color.blue;
+
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -106,17 +112,9 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("PlaneA"))
         {
             isOnGround = true;
-            playerRdr.material.color = playerMtrs[1].color;
+            //playerModelGO[0].GetComponent<Renderer>().material.color = Color.red;
+            //playerModelGO[1].GetComponent<Renderer>().material.color = Color.red;
         }
     }
-    private void PlayerJump()
-    {
-        if(Input.GetKeyDown(KeyCode.Space) && isOnGround)
-        {
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isOnGround = false;
-            playerRdr.material.color = playerMtrs[0].color;
-
-        }
-    }
+        
 }

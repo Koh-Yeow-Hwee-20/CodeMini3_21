@@ -180,6 +180,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 69c434b30866c2c4d83a21eefb9778ed, type: 2}
+    - target: {fileID: 13700000, guid: 2dc7b382d25903545b405802eb2198ab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: efb1469008cdd2c4abcc15a1e7081d2a, type: 2}
+    - target: {fileID: 13700002, guid: 2dc7b382d25903545b405802eb2198ab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: efb1469008cdd2c4abcc15a1e7081d2a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dc7b382d25903545b405802eb2198ab, type: 3}
 --- !u!1 &47864036
@@ -699,12 +707,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634480619}
   m_CullTransparentMesh: 0
---- !u!137 &669483114 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 13700002, guid: 2dc7b382d25903545b405802eb2198ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 42959161}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +799,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &754904395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100014, guid: 2dc7b382d25903545b405802eb2198ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 42959161}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &755811669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100008, guid: 2dc7b382d25903545b405802eb2198ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 42959161}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &835838635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1933,7 +1947,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1909602295
 BoxCollider:
@@ -2025,11 +2039,9 @@ MonoBehaviour:
   PowerUpCollected: {fileID: 634480619}
   playerAnim: {fileID: 1140604662}
   planeB: {fileID: 1776635068}
-  playerRb: {fileID: 1909602294}
-  playerRdr: {fileID: 669483114}
-  playerMtrs:
-  - {fileID: 2100000, guid: a941d61b1b4481d40b3cc0b058a856be, type: 2}
-  - {fileID: 2100000, guid: efb1469008cdd2c4abcc15a1e7081d2a, type: 2}
+  playerModelGO:
+  - {fileID: 755811669}
+  - {fileID: 754904395}
 --- !u!4 &1977462952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 10f4e51254da985418a112d2dfe124f0,
